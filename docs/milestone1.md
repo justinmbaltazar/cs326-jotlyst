@@ -20,3 +20,4 @@ The application has the following functionality:
 - **View Tasks by Due Date**: Allows users to view tasks by due date
 - **View Tasks by Completed**: Allows users to view tasks by completed
 
+The single page application has a front-end UI complete with menu options to add, edit, complete, delete, and view tasks as well as their aforementioned attributes. The back-end uses MongoDB to store all the data. This document-based database is used to store the tasks and their attributes, where the task ID is the unique identifier for each task. The data will be used to display the tasks and their corresponding attributes in the UI. Lastly, the application will interact with the user through the use of a RESTful API.
