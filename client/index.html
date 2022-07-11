@@ -18,12 +18,13 @@
     #2bedb7
     -->
     <br/>
-    <h1 class="text-left" style="color: #0a7557;">Jotlyst</h1>
-    <br/>
-    <h5 class="text-left" style="color: #03a47a;">Options</h5>
+    <!--<h1 class="text-left" style="color: #0a7557;">Jotlyst</h1>-->
+    <img src="../docs/jotlystalticon.png" alt="Jotlyst" style="width: 85px; float: left; margin-right: 10px;">
+
+    
     <body class="color-background" style="background-color: #fff; margin-left: 25%; margin-right: 25%;">
                     <div class="dropdown" style="margin-right: 10px;">
-                        <button type="button" id="dropdownButton" class="btn btn-primary dropdown-toggle" style="background-color: #2bedb7; border: #e6e6e6;" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
+                        <button type="button" id="dropdownButton" class="btn btn-primary dropdown-toggle" style="background-color: #12d39d; border: #e6e6e6;" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
                           New Task      
                         </button>
                         <form class="dropdown-menu p-4">
@@ -53,7 +54,7 @@
                     </div>
         
                     <div class="btn-group" id="dropdownButton">
-                        <button id="showAllTasksButton" type="button" style="background-color: #2bedb7; border: #e6e6e6; align-self: flex-end;" class="btn btn-primary">View Tasks</button>
+                        <button id="showAllTasksButton" type="button" style="background-color: #12d39d; border: #e6e6e6; align-self: flex-end;" class="btn btn-primary">View Tasks</button>
                         <button type="button" style="background-color: #2bedb7; border: #e6e6e6; align-self: flex-end;" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                           <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
@@ -86,8 +87,9 @@
                 
         <br/>
         <br/>
-        <h5 class="text-left" style="color: #03a47a;">Tasks</h5>
-        <div class="row row-cols-1 row-cols-md-2 g-4" id="taskBoard">
+        <br/>
+        <h5 id="textLabel" class="text-left" style="color: #0a7557; margin-top:10px;">Tasks</h5>
+        <div class="row row-cols-1 row-cols-md-3 g-4" id="taskBoard">
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <script src="main.js"></script>

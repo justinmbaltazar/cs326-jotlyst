@@ -1,8 +1,6 @@
-function addTask(name){
-    console.log(name);
-}
 let mostRecentTaskId = 0;
 document.getElementById("taskSubmitButton").addEventListener("click", function(){
+    taskBoardResize();
     let taskName = document.getElementById("taskNameField").value;
     let taskDescription = document.getElementById("taskDescriptionField").value;
     let taskPriority = document.getElementById("taskPriorityField").value;
@@ -167,5 +165,29 @@ function completedToggle(){
     else{
         document.getElementById("taskPriorityFilterField").disabled = false;
         //document.getElementById("taskDueDateFilterField").disabled = false;
+    }
+}
+window.addEventListener("resize", function(){
+    taskBoardResize();
+});
+function taskBoardResize(){
+    if(window.innerWidth <= 1162){
+        document.getElementById("taskBoard").className = "row row-cols-1 row-cols-md-1 g-4";
+    }
+    else if(window.innerWidth <= 1759 && window.innerWidth > 1162){
+        //set the class of taskBoard to "row row-cols-1 row-cols-md-2 g-4"
+        document.getElementById("taskBoard").className = "row row-cols-1 row-cols-md-2 g-4";
+    }
+    else if(window.innerWidth > 1759){
+        document.getElementById("taskBoard").className = "row row-cols-1 row-cols-md-3 g-6";
+    }
+    if(window.innerWidth <= 688){
+        document.getElementById("dropdownButton").style.marginBottom = "10px";
+        document.getElementById("dropdownButton").style.marginTop = "0px";
+        document.getElementById("textLabel").style.marginTop = "-37px";
+    }
+    else{
+        document.getElementById("dropdownButton").style.marginBottom = "0px";
+        document.getElementById("textLabel").style.marginTop = "10px";
     }
 }
