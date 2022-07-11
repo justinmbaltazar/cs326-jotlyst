@@ -47,38 +47,40 @@
                                 <label for="taskDueDate" class="form-label">Due Date</label>
                                 <input type="date" class="form-control" id="taskDueDateField">
                             </div>
-                          <button type="submit" id="taskSubmitButton" class="btn btn-primary">Submit</button>
+                          <button type="button" id="taskSubmitButton" class="btn btn-primary">Submit</button>
                         </form>
                       </div>
                     </div>
         
                     <div class="btn-group" id="dropdownButton">
-                        <button type="button" style="background-color: #2bedb7; border: #e6e6e6; align-self: flex-end;" class="btn btn-primary">View Tasks</button>
+                        <button id="showAllTasksButton" type="button" style="background-color: #2bedb7; border: #e6e6e6; align-self: flex-end;" class="btn btn-primary">View Tasks</button>
                         <button type="button" style="background-color: #2bedb7; border: #e6e6e6; align-self: flex-end;" class="btn btn-primary dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
                           <span class="visually-hidden">Toggle Dropdown</span>
                         </button>
                         <div class="dropdown-menu p-4">
                             <div class="mb-3">
                               <label for="taskPriority" class="form-label">Priority</label>
-                              <select class="form-control" id="priority">
-                                <option>All</option>
-                                <option>Low</option>
-                                <option>Medium</option>
-                                <option>High</option>
+                              <select class="form-control" id="taskPriorityFilterField" onchange="priorityToggle()">
+                                <option value="all">All</option>
+                                <option value="low">Low</option>
+                                <option value="medium">Medium</option>
+                                <option value="high">High</option>
                               </select>
                             </div>
+                            <!--
                             <div class="mb-3">
                               <label for="taskDueDate" class="form-label">Due Date</label>
-                              <input type="date" class="form-control" id="dueDate">
+                              <input type="date" class="form-control" id="taskDueDateFilterField">
                             </div>
+                            -->
                             <div class="mb-3">
                               <label for="taskCompleted" class="form-label">Status</label>
-                              <select class="form-control" id="completed">
-                                <option>Incomplete</option>
-                                <option>Completed</option>
+                              <select class="form-control" id="taskCompletedFilterField" onchange="completedToggle()">
+                                <option value="incomplete">Incomplete</option>
+                                <option value="complete">Completed</option>
                               </select>
                             </div>
-                            <button type="submit" class="btn btn-primary">Submit</button>
+                            <button type="button" id="taskFilterButton" class="btn btn-primary">Filter</button>
                           </div>
                       </div>
                 
@@ -86,43 +88,7 @@
         <br/>
         <h5 class="text-left" style="color: #03a47a;">Tasks</h5>
         <div class="row row-cols-1 row-cols-md-2 g-4" id="taskBoard">
-            <div class="col">
-                <div class="card bg-success text-white mb-3" id="task" style="width: 18rem;">
-                    <div class="card-body">
-                      <h5 class="card-title" style="float:left;">Task Title</h5>
-                      <small class="card-text" style="float: right; color:#e6e6e6"><script>const options = { year: 'numeric', month: 'long', day: 'numeric' }; document.write(new Date().toLocaleDateString(undefined, options));</script></small>
-                    </div>
-                    <div class="card-body">
-                      <p class="card-text">Task Description</p>
-                    </div>
-                    <div class="card-body">
-                      <a 
-                        href="#" 
-                        class="btn btn-primary" 
-                        style="margin-right: 10px;"
-                        onclick="completeTask()">Complete</a>
-                        <a
-                            href="#" 
-                            class="btn btn-primary" 
-                            style="margin-right: 10px;" 
-                            onclick="editTask()">Edit</a>
-                            <a
-                                href="#" 
-                                class="btn btn-primary" 
-                                onclick="deleteTask()">Delete</a>
-                    </div>
-                  </div>
-            </div>
-            <div class="col">
-              
-            </div>
-            <div class="col">
-              
-            </div>
-            <div class="col">
-              
-            </div>
-          </div>
+        </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
         <script src="main.js"></script>
       </body>
