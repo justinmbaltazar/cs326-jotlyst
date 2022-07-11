@@ -182,12 +182,13 @@ function taskBoardResize(){
         document.getElementById("taskBoard").className = "row row-cols-1 row-cols-md-3 g-6";
     }
     if(window.innerWidth <= 688){
-        document.getElementById("dropdownButton").style.marginBottom = "10px";
-        document.getElementById("dropdownButton").style.marginTop = "0px";
-        document.getElementById("textLabel").style.marginTop = "-37px";
+        document.getElementById("dropdownButton").style.marginBottom = "-20px";
+        document.getElementById("dropdownStyleGroup").style.marginTop = "-3px";
+        document.getElementById("textLabel").style.marginTop = "-11px";
     }
     else{
         document.getElementById("dropdownButton").style.marginBottom = "0px";
+        document.getElementById("dropdownStyleGroup").style.marginTop = "25px";
         document.getElementById("textLabel").style.marginTop = "10px";
     }
 }
