@@ -1,4 +1,4 @@
-# Jotlyst
+# Jotlyst Milestone 1
 
 <img src="jotlystheader.png" alt="Jotlyst Header" width="100%">
 

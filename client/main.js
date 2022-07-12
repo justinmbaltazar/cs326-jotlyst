@@ -175,7 +175,6 @@ function taskBoardResize(){
         document.getElementById("taskBoard").className = "row row-cols-1 row-cols-md-1 g-4";
     }
     else if(window.innerWidth <= 1759 && window.innerWidth > 1162){
-        //set the class of taskBoard to "row row-cols-1 row-cols-md-2 g-4"
         document.getElementById("taskBoard").className = "row row-cols-1 row-cols-md-2 g-4";
     }
     else if(window.innerWidth > 1759){
