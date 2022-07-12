@@ -62,4 +62,4 @@
 ### **Front-End Video Demonstration** 
 [![](https://img.youtube.com/vi/I_pHfzE2AMY/hqdefault.jpg)](https://www.youtube.com/watch?v=I_pHfzE2AMY)
 
-- **Video**: The video demonstration of the Jotlyst UI is shown in the example shown above.
+- **Video**: The video demonstration of the Jotlyst UI is shown above.
