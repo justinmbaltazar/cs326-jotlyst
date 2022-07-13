@@ -1,5 +1,22 @@
 {
+  "name": "cs326-jotlyst",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "deploy": "copyfiles client/* server/* .env package*.json deploy"
+  },
+  "author": "Justin Baltazar",
+  "license": "ISC",
   "dependencies": {
-    "bootstrap": "^5.2.0-beta1"
+    "body-parser": "^1.20.0",
+    "bootstrap": "^5.2.0-beta1",
+    "copyfiles": "^2.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "mongodb": "^4.8.0",
+    "morgan": "^1.10.0"
   }
 }
