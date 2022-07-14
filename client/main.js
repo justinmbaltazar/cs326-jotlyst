@@ -5,20 +5,21 @@ document.getElementById("taskSubmitButton").addEventListener("click", function()
     let taskPriority = document.getElementById("taskPriorityField").value;
     let taskDueDate = document.getElementById("taskDueDateField").value;
 
+    let classTaskPriority = "";
     if(taskPriority == "low"){
-        taskPriority = "bg-success";
+        classTaskPriority = "bg-success";
     }
     else if(taskPriority == "medium"){
-        taskPriority = "bg-warning";
+        classTaskPriority = "bg-warning";
     }
     else if(taskPriority == "high"){
-        taskPriority = "bg-danger";
+        classTaskPriority = "bg-danger";
     }
 
     let taskCard = document.createElement("div");
     taskCard.className = "col";
     taskCard.innerHTML = `
-    <div class="card ${taskPriority} text-white mb-3" id="task" style="width: 18rem;">
+    <div class="card ${classTaskPriority} text-white mb-3" id="task" style="width: 18rem;">
         <div class="card-body">
             <h5 class="card-title" style="float:left;">${taskName}</h5>
                 <small class="card-text" style="float: right; color:#e6e6e6">${taskDueDate}</small>
