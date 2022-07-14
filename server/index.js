@@ -32,9 +32,13 @@ class Server {
         });
 
         this.app.get('/api/tasks/:name', async (req, res) => {
-            const name = req.params.name;
-            const task = await self.db.getTask(name);
-            res.send(task);
+            try{
+                const name = req.params.name;
+                const task = await self.db.getTask(name);
+                res.send(task);
+            } catch(err) {
+                res.status(404).send(err);
+            }
         });
 
         this.app.post('/api/tasks', async (req, res) => {
