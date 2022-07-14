@@ -27,6 +27,7 @@ export class Database {
                     name: 'Jotlyst',
                     description: 'A simple todo list app',
                     priority: 'low',
+                    dueDate: '2020-01-01',
                     completed: 'complete',
                 });
 

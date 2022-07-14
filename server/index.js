@@ -38,13 +38,8 @@ class Server {
         });
 
         this.app.post('/api/tasks', async (req, res) => {
-            try {
-                const task = await self.db.addTask(req.body);
-                res.send(task);
-            }
-            catch (err) {
-                res.sendStatus(500);
-            }
+            const task = await self.db.addTask(req.body);
+            res.send(task);
         });
 
         this.app.put('/api/tasks/:name', async (req, res) => {
