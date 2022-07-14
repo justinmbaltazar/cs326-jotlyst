@@ -1,4 +1,3 @@
-let mostRecentTaskId = 1;
 document.getElementById("taskSubmitButton").addEventListener("click", function(){
     taskBoardResize();
     let taskName = document.getElementById("taskNameField").value;
@@ -18,7 +17,6 @@ document.getElementById("taskSubmitButton").addEventListener("click", function()
 
     let taskCard = document.createElement("div");
     taskCard.className = "col";
-    taskCard.id = `${mostRecentTaskId}`;
     taskCard.innerHTML = `
     <div class="card ${taskPriority} text-white mb-3" id="task" style="width: 18rem;">
         <div class="card-body">
@@ -71,7 +69,6 @@ document.getElementById("taskSubmitButton").addEventListener("click", function()
         taskCard.querySelector("#editTaskButton").remove();
     });
     document.getElementById("taskBoard").appendChild(taskCard);
-    mostRecentTaskId++;
 });
 document.getElementById("showAllTasksButton").addEventListener("click", function(){
     let allTasks = document.getElementById("taskBoard").children;
@@ -81,7 +78,6 @@ document.getElementById("showAllTasksButton").addEventListener("click", function
 });
 document.getElementById("taskFilterButton").addEventListener("click", function(){
     let taskPriority = document.getElementById("taskPriorityFilterField").value;
-    //let taskDueDate = document.getElementById("taskDueDateFilterField").value;
     let taskCompleted = document.getElementById("taskCompletedFilterField").value;
     let allTasks = document.getElementById("taskBoard").children;
     for(let i = 0; i < allTasks.length; i++){
@@ -110,20 +106,7 @@ document.getElementById("taskFilterButton").addEventListener("click", function()
                 allTasks[i].style.display = "none";
             }
         }
-        
-        /*
-        if(allTasks[i].querySelector("small").innerHTML == taskDueDate){
-            if(allTasks[i].style.display != "none"){
-                allTasks[i].style.display = "block";
-            }
-            console.log(`${allTasks[i].id} is due ${taskDueDate}`);
-        }
-        else{
-            allTasks[i].style.display = "none";
-            console.log(`${allTasks[i].id} is not due ${taskDueDate}`);
-        }
-        */
-        
+
         if(taskPriority == "all"){
             if(taskCompleted == "complete"){
                 if(allTasks[i].id == "taskCompleted"){
@@ -158,13 +141,11 @@ function priorityToggle(){
 function completedToggle(){
     if(document.getElementById("taskCompletedFilterField").value == "complete"){
         document.getElementById("taskPriorityFilterField").disabled = true;
-        //document.getElementById("taskDueDateFilterField").disabled = true;
         document.getElementById("taskPriorityFilterField").value = "all";
         document.getElementById("taskDueDateFilterField").value = "";
     }
     else{
         document.getElementById("taskPriorityFilterField").disabled = false;
-        //document.getElementById("taskDueDateFilterField").disabled = false;
     }
 }
 window.addEventListener("resize", function(){
