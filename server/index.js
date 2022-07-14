@@ -69,7 +69,19 @@ class Server {
             res.send(tasks);
         });
     }
+    async initDb() {
+        this.db = new Database(this.dburl);
+        await this.db.connect();
+    }
 
+    async start() {
+        await this.initDb();
+        await this.initRoutes();
+        const port = process.env.PORT || 3000;
+        this.app.listen(port, () => {
+            console.log(`Server listening on port ${port}`);
+        });
+    }
 }
 
 const server = new Server(process.env.DB_URL);
