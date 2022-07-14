@@ -1,4 +1,4 @@
-let mostRecentTaskId = 0;
+let mostRecentTaskId = 1;
 document.getElementById("taskSubmitButton").addEventListener("click", function(){
     taskBoardResize();
     let taskName = document.getElementById("taskNameField").value;
@@ -18,7 +18,7 @@ document.getElementById("taskSubmitButton").addEventListener("click", function()
 
     let taskCard = document.createElement("div");
     taskCard.className = "col";
-    taskCard.id = `task${mostRecentTaskId}`;
+    taskCard.id = `${mostRecentTaskId}`;
     taskCard.innerHTML = `
     <div class="card ${taskPriority} text-white mb-3" id="task" style="width: 18rem;">
         <div class="card-body">
