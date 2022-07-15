@@ -4,7 +4,7 @@
   "description": "",
   "type": "module",
   "scripts": {
-    "start": "node server/index.js",
+    "start": "node ./server/index.js",
     "deploy": "copyfiles client/* server/* .env package*.json deploy"
   },
   "author": "Justin Baltazar",
