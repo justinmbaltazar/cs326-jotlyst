@@ -39,7 +39,6 @@ function renderCompleteTask(task){
     `;
 
     taskCard.querySelector("#deleteTaskButton").addEventListener("click", function(){
-        //deleting a task is done by sending a delete request to the server
         fetch(`${url}/${task.name}`, {
             method: 'DELETE'
         });
@@ -78,7 +77,6 @@ function renderIncompleteTask(task){
     `;
 
     taskCard.querySelector("#completeTaskButton").addEventListener("click", function(){
-        //completing a task is done by sending a put request to the server
         let completedTask = {
             name: task.name,
             description: task.description,
@@ -98,12 +96,10 @@ function renderIncompleteTask(task){
     });
 
     taskCard.querySelector("#editTaskButton").addEventListener("click", function(){
-        //prompt the user to edit each field of the task
         let taskName = prompt("Task Name");
         let taskDescription = prompt("Task Description");
         let taskDueDate = prompt("Task Due Date");
         let taskPriority = prompt("Task Priority");
-        //update the task
         let updatedTask = {
             name: taskName,
             description: taskDescription,
@@ -111,7 +107,6 @@ function renderIncompleteTask(task){
             priority: taskPriority,
             completed: "incomplete"
         };
-        //send the updated task to the server
         fetch(`${url}/${task.name}`, {
             method: 'PUT',
             headers: {
@@ -119,13 +114,11 @@ function renderIncompleteTask(task){
             },
             body: JSON.stringify(updatedTask)
         }).then(response => response.json()).then(task => {
-            //render the task
             renderIncompleteTask(task);
         }).catch(error => console.log(error));
     });
 
     taskCard.querySelector("#deleteTaskButton").addEventListener("click", function(){
-        //deleting a task is done by sending a delete request to the server
         fetch(`${url}/${task.name}`, {
             method: 'DELETE'
         });
@@ -145,7 +138,6 @@ function changeTask(task){
     }
 }
 
-
 document.getElementById("taskSubmitButton").addEventListener("click", function(){
     taskBoardResize();
     let taskName = document.getElementById("taskNameField").value;
@@ -153,7 +145,6 @@ document.getElementById("taskSubmitButton").addEventListener("click", function()
     let taskPriority = document.getElementById("taskPriorityField").value;
     let taskDueDate = document.getElementById("taskDueDateField").value;
 
-    //create a new task
     let task = {
         name: taskName,
         description: taskDescription,
@@ -161,7 +152,7 @@ document.getElementById("taskSubmitButton").addEventListener("click", function()
         dueDate: taskDueDate,
         completed: "incomplete"
     };
-    //send the new task to the server
+
     fetch(url, {
         method: 'POST',
         headers: {
@@ -169,17 +160,13 @@ document.getElementById("taskSubmitButton").addEventListener("click", function()
         },
         body: JSON.stringify(task)
     }).then(response => response.json()).then(task => {
-        //render the task
         renderIncompleteTask(task);
     }).catch(error => console.log(error));
 });
 
 document.getElementById("showAllTasksButton").addEventListener("click", function(){
-    //clear the task board
     document.getElementById("taskBoard").innerHTML = "";
-    //fetch all tasks from the server
     fetch(url).then(response => response.json()).then(tasks => {
-        //render all tasks
         tasks.forEach(task => {
             task.completed === "complete" ? renderCompleteTask(task) : renderIncompleteTask(task);
         });
@@ -189,13 +176,11 @@ document.getElementById("showAllTasksButton").addEventListener("click", function
 document.getElementById("taskFilterButton").addEventListener("click", function(){
     let taskPriority = document.getElementById("taskPriorityFilterField").value;
     let taskCompleted = document.getElementById("taskCompletedFilterField").value;
-    //clear the task board
+
     document.getElementById("taskBoard").innerHTML = "";
     
-    //the filter by priority is done by sending a get request to /api/tasks/priority/{priority}
     if(taskCompleted == "incomplete"){
         fetch(`${url}/priority/${taskPriority}`).then(response => response.json()).then(tasks => {
-            //render all tasks
             tasks.forEach(task => {
                 if(task.completed === "incomplete"){
                     renderIncompleteTask(task);
@@ -204,10 +189,8 @@ document.getElementById("taskFilterButton").addEventListener("click", function()
         });
     }
 
-    //the filter by completed is done by sending a get request to /api/tasks/completed/{completed}
     if(taskPriority == "all"){
         fetch(`${url}/completed/${taskCompleted}`).then(response => response.json()).then(tasks => {
-            //render all tasks
             tasks.forEach(task => {
                 task.completed === "complete" ? renderCompleteTask(task) : renderIncompleteTask(task);
             });
@@ -217,7 +200,6 @@ document.getElementById("taskFilterButton").addEventListener("click", function()
 });
 
 
-//misc event/window listeners
 
 function priorityToggle(){
     if(document.getElementById("taskPriorityFilterField").value != "all"){
